@@ -1,13 +1,16 @@
 import re
 
-str = input("Enter your string:")
+str = input("Enter your string: ")
 
 nums = re.findall(r'\d+', str)
 str = re.sub(r"\d+", "", str, flags=re.UNICODE)
 nums = [int(i) for i in nums]
 
 print(str)
-print(nums)
+if not nums:
+    print("There are no numbers in your string")
+else:
+    print(nums)
         
 str, res = str.title(), ""
 for word in str.split():
@@ -15,13 +18,19 @@ for word in str.split():
 
 print( "" + res)
 
-mnum = max(nums)    
-print("\nMax number in array:", mnum)
+if not nums:
+    print("There are no numbers in your string")
+else:
+    mnum = max(nums)
+    print("\nMax number in array:", mnum)
 
-arr_c = []
-for i in range(len(nums)):
-    if i !=nums.index(mnum):
-        temp = nums[i]         
-        stup = temp ** i
-        arr_c.insert(i, stup)
-print("An array of numbers elevated to the power of their index:\n", arr_c)
+if not nums:
+    print("There are no numbers in your string")
+else:
+    arr_c = []
+    for i in range(len(nums)):
+        if i !=nums.index(mnum):
+            temp = nums[i]         
+            stup = temp ** i
+            arr_c.insert(i, stup)
+    print("An array of numbers elevated to the power of their index:\n", arr_c)
